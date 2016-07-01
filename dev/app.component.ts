@@ -9,8 +9,9 @@ import {BindingComponent} from './binding/binding.component'
             <h4>Please enter your name</h4>
             <input type="text" [(ngModel)]="name">
             <section class="child">
-                <my-binding [name]="name" [age]="26"></my-binding>
+                <my-binding  [name]="name" [age]="26" (fieldEvent)="hobby = $event"></my-binding>
             </section>
+            <p>So, my hobby is: {{hobby}}</p>
         </section>
     `,
     directives: [BindingComponent]
@@ -19,4 +20,5 @@ import {BindingComponent} from './binding/binding.component'
 
 export class AppComponent{
     name: string = '';
+    hobby: string = '';
 }
