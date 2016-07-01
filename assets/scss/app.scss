@@ -1,0 +1,26 @@
+body {
+  padding: 32px;
+  margin: 32px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+}
+
+.switch{
+  background: #bc7a6d;
+  padding: 20px;
+  input{
+    display: block;
+  }
+}
+
+
+.complete{
+  background: #6af064;
+  border: 1px solid red;
+}
+
+
+.static{
+  background: grey;
+  padding: 20px;
+}
