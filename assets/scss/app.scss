@@ -5,26 +5,14 @@ body {
   font-size: 16px;
 }
 
-.switch{
-  background: #bc7a6d;
-  padding: 20px;
-  input{
-    display: block;
-  }
-}
-
-
-.complete{
-  background: #6af064;
-  border: 1px solid red;
-}
-
-
-.static{
+.parent{
   background: grey;
   padding: 20px;
+  border:1px solid #ccc;
 }
-
-.red{
-  color: red;
+.child{
+  background: darkorange;
+  border: 1px solid;
+  padding: 20px;
+  margin-top: 50px;
 }
