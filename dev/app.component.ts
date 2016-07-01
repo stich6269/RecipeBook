@@ -1,24 +1,35 @@
 import {Component} from 'angular2/core';
-import {BindingComponent} from './binding/binding.component'
+import {DetailsComponent} from './details/details.component'
+import {SubmitComponent} from './submit/submit.component'
+
 
 @Component({
     selector: 'app',
     template: `
-        <section class="parent">
-            <h2>This is the parent component</h2>
-            <h4>Please enter your name</h4>
-            <input type="text" [(ngModel)]="name">
-            <section class="child">
-                <my-binding  [name]="name" [age]="26" (fieldEvent)="hobby = $event"></my-binding>
-            </section>
-            <p>So, my hobby is: {{hobby}}</p>
-        </section>
+       <my-details [mySelf]="confirmMySelf" (submitEvent)="onSubmit($event)"  class="component"></my-details>
+       <my-submit  [mySelf]="mySelf" (confirmEvent)="onConfirm($event)"  class="component"></my-submit>
     `,
-    directives: [BindingComponent]
+    directives: [SubmitComponent, DetailsComponent]
 })
 
 
 export class AppComponent{
-    name: string = '';
-    hobby: string = '';
+    mySelf = {name:'', age: 0};
+    confirmMySelf  = {name:'', age: 0};
+
+    onSubmit(myself: {name: string, age: number}): void{
+        this.mySelf = {
+            name: myself.name,
+            age: myself.age
+        };
+    }
+
+    onConfirm(myself: {name: string, age: number}): void{
+        this.confirmMySelf = {
+            name: myself.name,
+            age: myself.age
+        };
+        
+        console.log('app confirm', this.confirmMySelf)
+    }
 }
