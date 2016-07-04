@@ -1,35 +1,25 @@
 import {Component} from 'angular2/core';
-import {DetailsComponent} from './details/details.component'
-import {SubmitComponent} from './submit/submit.component'
-
+import {HighlightDirective} from './highlight.directive'
+import {StructuralDirectives} from "./structural/structural.component";
 
 @Component({
     selector: 'app',
     template: `
-       <my-details [mySelf]="confirmMySelf" (submitEvent)="onSubmit($event)"  class="component"></my-details>
-       <my-submit  [mySelf]="mySelf" (confirmEvent)="onConfirm($event)"  class="component"></my-submit>
+        <div myHighlight [highlightColor]="'cyan'">
+            Highlight me
+        </div>        
+        <br>
+        <div myHighlight>
+            Another highlight me
+        </div>
+        <br>
+        <h2>Structural directives</h2>
+        <my-structural-directives></my-structural-directives>
     `,
-    directives: [SubmitComponent, DetailsComponent]
+    directives: [HighlightDirective, StructuralDirectives]
 })
 
 
 export class AppComponent{
-    mySelf = {name:'', age: 0};
-    confirmMySelf  = {name:'', age: 0};
 
-    onSubmit(myself: {name: string, age: number}): void{
-        this.mySelf = {
-            name: myself.name,
-            age: myself.age
-        };
-    }
-
-    onConfirm(myself: {name: string, age: number}): void{
-        this.confirmMySelf = {
-            name: myself.name,
-            age: myself.age
-        };
-        
-        console.log('app confirm', this.confirmMySelf)
-    }
 }

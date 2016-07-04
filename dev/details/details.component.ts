@@ -14,6 +14,7 @@ import {Component, EventEmitter} from "angular2/core";
         <br>
         Valid: {{isValid ? 'YES': 'NO'}} 
         <br><br>
+        <br><br>
         <button [disabled]="!isFilled || !isValid" (click)="onSubmit()" >Submit</button>
     `,
     outputs: ['submitEvent'],
