@@ -1,5 +1,5 @@
 import {Component, EventEmitter} from "angular2/core";
-import {ListItem} from "../list-item";
+import {ListItem} from "models/list-item";
 
 @Component({
     selector: 'shopping-list-item',
@@ -25,6 +25,5 @@ export class ShoppingListItemComponent{
     remove: EventEmitter = new EventEmitter<ListItem>();
     onDelete(item: ListItem): void{
         this.remove.emit(item);
-        this.item = {name: '', amount: 0};
     }
 }

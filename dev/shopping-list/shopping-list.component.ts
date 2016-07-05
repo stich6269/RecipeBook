@@ -1,13 +1,14 @@
-import {Component} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 import {NewShoppingListComponent} from "./new-shopping-list-item.component";
-import {ListItem} from './../list-item'
+import {ListItem} from './models/list-item'
 import {ShoppingListItemComponent} from "./chopping-list-item.component";
+import {DataService} from "./services/data.services";
 
 @Component({
     selector: 'shopping-list',
     template: `    
         <section>
-            <shopping-list-new-item (addNewItem)="addNewItem($event)"></shopping-list-new-item>
+            <shopping-list-new-item></shopping-list-new-item>
         </section>
         <section>
             <h3>My list</h3>
@@ -24,17 +25,20 @@ import {ShoppingListItemComponent} from "./chopping-list-item.component";
     directives: [NewShoppingListComponent, ShoppingListItemComponent]
 })
 
-export class ShoppingListComponent{
-    listItems = new Array<ListItem>();
+export class ShoppingListComponent implements OnInit{
+    listItems: ListItem[];
     selectedItem: ListItem;
-    addNewItem(item: ListItem): void{
-        this.listItems.push({name: item.name, amount: item.amount});
+    
+    constructor(private _dataService: DataService){}
+    
+    ngOnInit():void {
+        this.listItems = this._dataService.getItems();
     }
     onSelect(item: ListItem){
         this.selectedItem = item;
     }
     onRemove(item: ListItem){
-        this.listItems.splice(this.listItems.indexOf(item), 1);
+        this._dataService.deleteItem(item);
         this.selectedItem = null;
     }
 }
