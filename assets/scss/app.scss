@@ -4,17 +4,10 @@ body{
   font-size: 16px;
 }
 
-form{
-  label{
-    display: block;
-    margin-top: 5px;
-  }
 
-  button{
-    margin-top: 10px;
-  }
 
-  .validation-error{
-    color: red;
-  }
+.pipe{
+  background-color: grey;
+  padding: 10px;
+  margin-bottom: 15px;
 }

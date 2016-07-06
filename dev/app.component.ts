@@ -1,13 +1,13 @@
 import {Component} from 'angular2/core';
-import {DataDrivenFormComponent} from "./data-driven-form.component";
+import {PipeComponent} from "./pipe.component";
 
 @Component({
     selector: 'app',
-    directives: [DataDrivenFormComponent],
-    template: `
-       <template-driven-form></template-driven-form>
-    `,
+    template: '<pipe-component></pipe-component>',
+    directives: [PipeComponent]
 })
+
+
 
 export class AppComponent{
 

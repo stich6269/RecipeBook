@@ -1,0 +1,46 @@
+<section class="pipe">
+    <h2>Data pipe</h2>
+    <p>Today is: {{date | date:'mediumTime'}}</p>
+</section>
+
+<section class="pipe">
+    <h2>The lowercase and UPPERCASE pipe</h2>
+    <input type="text" #inputCasePipes (keyup)="0">
+    <div>Output lowercase: {{inputCasePipes.value | lowercase}}</div>
+    <div>Output Uppercase: {{inputCasePipes.value | uppercase}}</div>
+    <p>Today is: XX</p>
+</section>
+
+<section class="pipe">
+    <h2>The slice Pipe</h2>
+    <input type="text" #inputSlicePipes (keyup)="0" > - from
+    <input type="text" #start (keyup)="0"> to <input type="text" #end (keyup)="0">
+    <div>Output: {{inputSlicePipes.value | slice:start.value:end.value}}</div>
+</section>
+
+<section class="pipe">
+    <h2>Number pipes</h2>
+    <input type="text" #inputNumberPipes (keyup)="0"> - currency: <input type="text" #currency value="EUR" (change)="0">
+    <div>Decimal: {{1*inputNumberPipes.value | number:'2.1-2'}}</div>
+    <div>Currency: {{1*inputNumberPipes.value | currency:currency.value:currencyShort.checked}}</div>
+    <input type='checkbox' #currencyShort checked (change)="0"> Short currency code
+</section>
+
+
+<section class="pipe">
+    <h2>Chaining multiple pipes</h2>
+    <input type="text" #inputChainPipes (keyup)="0"><br>
+    <div>Output: {{inputChainPipes.value | slice:1:3 | uppercase}}</div>
+</section>
+
+
+<section class="pipe">
+    <h2>Custom pipe</h2>
+    <input type="text" #inputCustomPipe (keyup)="0"><br>
+    <div>Output: {{inputCustomPipe.value | myReverse}}</div>
+</section>
+
+<section class="pipe">
+    <h2>Async (stateful) pipes</h2>
+    <div>Output (received after 2s): {{stateFullPipeOutput | async}}</div>
+</section>
