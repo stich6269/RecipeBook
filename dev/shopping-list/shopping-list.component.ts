@@ -3,6 +3,7 @@ import {NewShoppingListComponent} from "./new-shopping-list-item.component";
 import {ListItem} from './models/list-item'
 import {ShoppingListItemComponent} from "./chopping-list-item.component";
 import {DataService} from "./services/data.services";
+import {FilterPipe} from "./pipes/filter.pipe";
 
 @Component({
     selector: 'shopping-list',
@@ -12,9 +13,13 @@ import {DataService} from "./services/data.services";
         </section>
         <section>
             <h3>My list</h3>
+            Filter:
+            <input type="text" #filter (keyup)="0">
+            
+            
             <div class="list">
                 <ul>
-                    <li *ngFor="#item of listItems" (click)="onSelect(item)">{{item.name}} ({{item.amount}})</li>
+                    <li *ngFor="#item of listItems | myFilter:filter.value" (click)="onSelect(item)">{{item.name}} ({{item.amount}})</li>
                 </ul>
             </div>
         </section>
@@ -22,6 +27,7 @@ import {DataService} from "./services/data.services";
                 <shopping-list-item (remove)="onRemove($event)" [item]="selectedItem"></shopping-list-item>
         </section>
     `,
+    pipes: [FilterPipe],
     directives: [NewShoppingListComponent, ShoppingListItemComponent]
 })
 
