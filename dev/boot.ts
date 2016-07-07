@@ -1,6 +1,6 @@
 ///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
 import {bootstrap} from 'angular2/platform/browser';
 import {AppComponent} from "./app.component";
-import {DataService} from "./shopping-list/services/data.services";
+import {ROUTER_PROVIDERS} from "angular2/router";
 
-bootstrap(AppComponent, [DataService]);
+bootstrap(AppComponent, [ROUTER_PROVIDERS]);
