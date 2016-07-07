@@ -1,28 +1,34 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
-import {Component1Component} from "./component1.component";
-import {Component2Component} from "./component2.component";
+import {HttpService} from "./http.service";
 
 @Component({
     selector: 'app',
-    template: `
-        <header>
-            <ul>
-                <a [routerLink]="['Component1', {source: 'AppComponent', optional: 'This is optional'}]">First</a>
-                <a [routerLink]="['Component2']">Second</a>
-            </ul>
-        </header>
-        
-        <router-outlet></router-outlet>
-    `,
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: 'dev/app.tpl.html',
+    providers: [HttpService]
 })
 
-@RouteConfig([
-    {path:'/component-1:source/...', name: 'Component1', component: Component1Component},
-    {path:'/component-2', name: 'Component2', component: Component2Component}
-])
-
 export class AppComponent{
+    response: string;
+    constructor(private _http: HttpService){};
+    onGetPosts(): void{
+        this._http.getPosts()
+            .subscribe(
+                response => this.response = response,
+                error => console.log(error)
+            )
+    }
 
+    createPost(title: string, body: string, userId: number): void{
+        let data: {title: string, body: string, userId: number} = {
+            title: title,
+            body: body,
+            userId: +userId
+        };
+
+        this._http.createPost(data)
+            .subscribe(
+                response => this.response = response,
+                error => console.log(error)
+            )
+    }
 }
