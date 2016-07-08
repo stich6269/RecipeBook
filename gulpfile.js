@@ -58,8 +58,9 @@ gulp.task('build-html', function () {
 
 gulp.task('watch', function () {
     gulp.watch(appDev + '**/*.ts', ['build-ts']);
+    gulp.watch(appDev + '**/*.html', ['build-html']);
     gulp.watch(assetsDev + 'scss/**/*.scss', ['build-css']);
     gulp.watch(assetsDev + 'img/*', ['build-img']);
 });
 
-gulp.task('default', ['watch', 'build-ts', 'build-css']);
+gulp.task('default', ['watch', 'build-ts', 'build-css', 'build-html']);

@@ -1,4 +1,5 @@
 import {Ingredient} from "./ingredients";
+
 export class Recipe {
     name: string;
     content: string;
