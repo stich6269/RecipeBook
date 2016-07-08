@@ -1,0 +1,43 @@
+<div class="recipe">
+    <form>
+        <span>
+            <button class="btn">Save</button>
+            <span>
+                <button class="btn alt" (click)="onCancel()">Cancel</button>
+            </span> 
+            
+            <span class="input">
+                <label for="name">Title</label>
+                <input type="text" id="name">
+
+                <label for="image-url">Image Url</label>
+                <input type="text" id="image-url" #imageUrl>
+                
+                <span class="img">
+                    <img [src]="imageUrl.value" alt="">
+                </span>
+
+
+                <label for="content">Content</label>
+                <textarea name="" id="content" rows="6"></textarea>
+
+                <span class="list">
+                    <ul>
+                        <li *ngFor="#item of ...; #i = index">
+                            <input type="text" class="item-name">
+                            <input type="text" class="item-amount">
+                            <a class="btn danger" (click)="onRemoveItem(item)">X</a>
+                        </li>
+                    </ul>
+                </span>
+
+            </span>
+        </span>
+    </form>
+    <hr>
+    <div class="list">
+        <input type="text" class="item-name" #itemName>
+        <input type="text" class="item-amount" #itemAmount>
+        <a class="btn danger" (click)="onAddItem(itemName.value, itemAmount.name)">Add</a>
+    </div>
+</div>

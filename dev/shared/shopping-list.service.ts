@@ -25,6 +25,7 @@ export class ShoppingListService{
     }
 
     deleteItem(item: Ingredient): void{
+        console.log('currend item', SHOPPING_LIST.indexOf(item))
         SHOPPING_LIST.splice(SHOPPING_LIST.indexOf(item), 1);
     }
 

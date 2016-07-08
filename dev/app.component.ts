@@ -9,7 +9,7 @@ import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
         <header>
             <nav>
                 <ul>
-                    <li><a [routerLink]="['Recipes22']">Recipes</a></li>
+                    <li><a [routerLink]="['Recipes']">Recipes</a></li>
                     <li><a [routerLink]="['ShoppingList']">Shopping list</a></li>
                 </ul>
             </nav>
@@ -24,7 +24,7 @@ import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
 })
 
 @RouteConfig([
-    {path: '/recipes', name: 'Recipes22', component: RecipeComponent, useAsDefault: true},
+    {path: '/recipes/...', name: 'Recipes', component: RecipeComponent, useAsDefault: true},
     {path: '/shopping-list', name: 'ShoppingList', component: ShoppingListComponent}
 ])
 
