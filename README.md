@@ -1,14 +1,14 @@
-# Angular 2 Beta Boilerplate
+# Angular 2 Beta project for learning Angular 2
 
 ## Description
-This repository acts as a very simple Angular 2 Beta Boilerplate with which you can get started developing Angular 2 immediately.
-It is derived from the official Angular 2 Documentation which can be found [here](https://angular.io/docs/ts/latest/quickstart.html).
+This repository acts as a very simple Angular 2 Beta Project with using local storage for data, simole
+routing and basic practices of Angular 2 documentation  
 ## Usage
 Follow the following steps and you're good to go! Important: Typescript and npm has to be installed on your machine!
 
 1: Clone repo
 ```
-git clone https://github.com/mschwarzmueller/angular-2-beta-boilerplate.git
+https://github.com/stich6269/RecipeBook.git
 ```
 2: Install packages
 ```
