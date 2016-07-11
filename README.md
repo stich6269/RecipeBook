@@ -1,4 +1,4 @@
-# Angular 2 Beta project for learning Angular 2
+# Angular 2 Beta project
 
 ## Description
 This repository acts as a very simple Angular 2 Beta Project with using local storage for data, simole
