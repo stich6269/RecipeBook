@@ -1,0 +1,10 @@
+<h1>Shopping list</h1>
+
+<my-shopping-list-edit [ingredient]="selected"></my-shopping-list-edit>
+
+<div class="list">
+    <button class="btn" (click)="onAddItem()">Add new item</button>
+    <ul>
+        <li *ngFor="#item of shoppingList" (click)="onEdit(item)">{{item.name}} {{item.amount}}</li>
+    </ul>
+</div>

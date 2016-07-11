@@ -1,0 +1,9 @@
+<button class="btn">Add recipe</button>
+<ul>
+    <li *ngFor="#recipe of recipes" (click)="onSelect(recipe)">
+        <div class="img">
+            <img [src]="recipe.imageUrl">
+        </div>
+        <div class="text">{{recipe.name}}</div>
+    </li>
+</ul>
